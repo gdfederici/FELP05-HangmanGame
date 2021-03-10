@@ -49,8 +49,10 @@ function loadKeyboard (langJson) {
 // IT- Mostro a monitor lo spazio con la parola da indovinare
 function createWord (word) {
     let wordA = [...word];
+    var i=-1;
     document.getElementById("deathWord").innerHTML = wordA.map(function(item) {
-        return "<span class='hidden'> _ </span>";
+        i++;
+        return "<span id='spazio" + i + "'> _ </span>";
     }).join(" ");
 }
 
@@ -76,6 +78,14 @@ function checkLetter (letter, word) {
     return pos;
 }
 
+function showLetter (posizioni, lettera) {
+    let l = posizioni.length;
+    console.log("posizioni", posizioni)
+    console.log("lettera", lettera);
+    for (i=0; i<l; i++) {
+        document.getElementById("spazio" + posizioni[i]).innerHTML = lettera;
+    }
+}
 
 // *** ---------- TEST ---------- *** //
 
@@ -89,7 +99,9 @@ console.log("mysteryTip", mysteryTip);
 createWord(mysteryWord);
 function playGame(pippo) {
     console.log(pippo);
-    checkLetter(pippo, mysteryWord);
+    var pluto = checkLetter(pippo, mysteryWord);
+    showLetter (pluto, pippo);
+
 }
 
 
