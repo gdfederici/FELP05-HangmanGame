@@ -18,7 +18,6 @@ function isMystery() {
     console.log("MBOX", mysteryObj[luck]);
     return mysteryObj[luck];
 }
-
 // IT- Carico i dati dal contenuto json.
 // EN- Load the data from the json content.
 function loadData(contentJson) {
@@ -36,14 +35,27 @@ function createKeyboard () {
     document.getElementById("hangmanKeyboard").innerHTML = jsonKeyboard.map(function(item) {
         return "<button onclick='playGame(\"" + item + "\")'>" + item + "</button>";
     }).join(" ");
-
 }
-
 // IT- Carico i dati dal contenuto json.
 // EN- Load the data from the json content.
 function loadKeyboard (langJson) {
     return JSON.parse(langJson).keyboard;
 }
+
+
+// ---------- ********** ---------- //
+
+
+// IT- Mostro a monitor lo spazio con la parola da indovinare
+function createWord (word) {
+    let wordA = [...word];
+    document.getElementById("deathWord").innerHTML = wordA.map(function(item) {
+        return "<span class='hidden'> _ </span>";
+    }).join(" ");
+}
+
+
+// ---------- ********** ---------- //
 
 
 // IT- Controllo la presenza della lettera nella parola.
@@ -74,6 +86,7 @@ var mysteryWord = "accavallavacca"
 console.log("mysteryWord", mysteryWord);
 var mysteryTip = mysteryBox.tip;
 console.log("mysteryTip", mysteryTip);
+createWord(mysteryWord);
 function playGame(pippo) {
     console.log(pippo);
     checkLetter(pippo, mysteryWord);
