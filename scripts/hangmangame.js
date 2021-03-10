@@ -7,6 +7,23 @@ var dJson = '{ "dataComputer": [' +
 var kJson = '{ "keyboard" : [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"] }';
 
 
+// *** ---------- TEST ---------- *** //
+
+createKeyboard();
+var mysteryBox = isMystery();
+//var mysteryWord = misteryBox.word;
+var mysteryWord = "accavallavacca"
+console.log("mysteryWord", mysteryWord);
+var mysteryTip = mysteryBox.tip;
+console.log("mysteryTip", mysteryTip);
+createWord(mysteryWord);
+function playGame(pippo) {
+    console.log(pippo);
+    var pluto = checkLetter(pippo, mysteryWord);
+    showLetter (pluto, pippo);
+}
+
+
 // ---------- ********** ---------- //
 
 
@@ -46,13 +63,14 @@ function loadKeyboard (langJson) {
 // ---------- ********** ---------- //
 
 
-// IT- Mostro a monitor lo spazio con la parola da indovinare
+// IT- Mostro a monitor lo spazio con la parola da indovinare.
+// EN- Show space for mystery word.
 function createWord (word) {
     let wordA = [...word];
     var i=-1;
     document.getElementById("deathWord").innerHTML = wordA.map(function(item) {
         i++;
-        return "<span id='spazio" + i + "'> _ </span>";
+        return "<span id='spazio" + i + "' class='mystery_word'> _ </span>";
     }).join(" ");
 }
 
@@ -61,7 +79,7 @@ function createWord (word) {
 
 
 // IT- Controllo la presenza della lettera nella parola.
-// 
+// EN- Check letter in the word.
 function checkLetter (letter, word) {
     console.log(word);
     let wordA = [...word]; // Trasformo stringa in array per utilizzare forEach altrimenti potevo lasciare e usare ciclo for normale
@@ -75,33 +93,22 @@ function checkLetter (letter, word) {
     })
     console.log("pos", pos);
     console.log(pos.length);
+    if ( pos.length === 0 ) {
+        pos.push(-1);
+    }
     return pos;
 }
 
-function showLetter (posizioni, lettera) {
-    let l = posizioni.length;
-    console.log("posizioni", posizioni)
-    console.log("lettera", lettera);
-    for (i=0; i<l; i++) {
-        document.getElementById("spazio" + posizioni[i]).innerHTML = lettera;
+
+// IT- Mostro le lettere indovinate al posto degli spazi vuoti.
+// EN- Show corret letter.
+function showLetter (positions, letter) {
+    let howManyCheck = positions.length;
+    console.log("posizioni", positions)
+    console.log("lettera", letter);
+    for (i=0; i<howManyCheck; i++) {
+        document.getElementById("spazio" + positions[i]).innerHTML = letter;
     }
-}
-
-// *** ---------- TEST ---------- *** //
-
-createKeyboard();
-var mysteryBox = isMystery();
-//var mysteryWord = misteryBox.word;
-var mysteryWord = "accavallavacca"
-console.log("mysteryWord", mysteryWord);
-var mysteryTip = mysteryBox.tip;
-console.log("mysteryTip", mysteryTip);
-createWord(mysteryWord);
-function playGame(pippo) {
-    console.log(pippo);
-    var pluto = checkLetter(pippo, mysteryWord);
-    showLetter (pluto, pippo);
-
 }
 
 
