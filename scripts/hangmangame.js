@@ -7,29 +7,6 @@ var dJson = '{ "dataComputer": [' +
 var kJson = '{ "keyboard" : [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"] }';
 
 
-// *** ---------- TEST ---------- *** //
-
-var mystery = startHangmanGame();
-console.log("mystery", mystery);
-
-
-function playGame(letterChoice) {
-    console.log(letterChoice);
-    var checkResult = checkLetter(letterChoice, mystery.word);
-    if (!checkResult.length) {
-        console.log("sbagliato");
-        ko++;
-        console.log(ko);
-        if (ko === 3) { console.log("fine");}
-    }
-    else {
-        showLetter (checkResult, letterChoice);
-        console.log("giusto", ok);
-        if (ok === mystery.word.length) { console.log("vinci");}
-    }
-
-}
-
 
 // ---------- ///// ---------- // INIZIALIZZAZIONE // ---------- ///// ---------- //
 
@@ -48,7 +25,7 @@ function startHangmanGame() {
 function createKeyboard () {
     let jsonKeyboard = loadKeyboard(kJson);
     document.getElementById("hangmanKeyboard").innerHTML = jsonKeyboard.map(function(item) {
-        return "<button onclick='playGame(\"" + item + "\")'>" + item + "</button>";
+        return "<button id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
     }).join(" ");
 }
 // IT- Carico i dati dal contenuto json.
@@ -78,12 +55,29 @@ function createWord (word) {
     var i=-1;
     document.getElementById("deathWord").innerHTML = wordA.map(function(item) {
         i++;
-        return "<span id='spazio" + i + "' class='mystery_word'> _ </span>";
+        return "<span id='place" + i + "' class='mystery_word'> _ </span>";
     }).join(" ");
 }
 
 
-// ---------- ********** ---------- //
+// ---------- ///// ---------- // GIOCO // ---------- ///// ---------- //
+
+
+function playGame(letterChoice) {
+    console.log(letterChoice);
+    document.getElementById("key-"+letterChoice).disabled = true;
+    var checkResult = checkLetter(letterChoice, mystery.word);
+    mystery.letters.push(letterChoice);
+    if (!checkResult.length) {
+
+    }
+    else {
+        showLetter (checkResult, letterChoice);
+        console.log("giusto");
+        //if (ok === mystery.word.length) { console.log("vinci");}
+    }
+
+}
 
 
 // IT- Controllo la presenza della lettera nella parola.
@@ -101,17 +95,20 @@ function checkLetter (letter, word) {
     return positions;
 }
 
-
 // IT- Mostro le lettere indovinate al posto degli spazi vuoti.
 // EN- Show corret letter.
 function showLetter (positions, letter) {
     let howManyCheck = positions.length;
-    console.log("posizioni", positions)
     console.log("lettera", letter);
     for (i=0; i<howManyCheck; i++) {
-        document.getElementById("spazio" + positions[i]).innerHTML = letter;
-        ok++;
+        document.getElementById("place" + positions[i]).innerHTML = letter;
+        mystery.ok++;
     }
 }
 
 
+
+// *** ---------- TEST ---------- *** //
+
+var mystery = startHangmanGame();
+console.log("mystery", mystery);
