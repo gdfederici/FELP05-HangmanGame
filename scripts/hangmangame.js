@@ -12,11 +12,11 @@ var kJson = '{ "keyboard" : [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
 
 // IT- Dall'intero gruppo di parole+suggerimenti estraggo casualmente quelli da utilizzare nel gioco.
 // EN- From the whole group of words+hints randomly extract the ones to use in the game.
-function isMistery() {
-    let misteryObj = loadData(dJson);
-    let luck = Math.floor(Math.random() * misteryObj.length);
-    console.log("MBOX", misteryObj[luck]);
-    return misteryObj[luck];
+function isMystery() {
+    let mysteryObj = loadData(dJson);
+    let luck = Math.floor(Math.random() * mysteryObj.length);
+    console.log("MBOX", mysteryObj[luck]);
+    return mysteryObj[luck];
 }
 
 // IT- Carico i dati dal contenuto json.
@@ -30,6 +30,7 @@ function loadData(contentJson) {
 
 
 // IT- Mostro a monitor la tastiera selezionata.
+// EN- Keyboard on the monitor.
 function createKeyboard () {
     let jsonKeyboard = loadKeyboard(kJson);
     document.getElementById("hangmanKeyboard").innerHTML = jsonKeyboard.map(function(item) {
@@ -43,3 +44,39 @@ function createKeyboard () {
 function loadKeyboard (langJson) {
     return JSON.parse(langJson).keyboard;
 }
+
+
+// IT- Controllo la presenza della lettera nella parola.
+// 
+function checkLetter (letter, word) {
+    console.log(word);
+    let wordA = [...word]; // Trasformo stringa in array per utilizzare forEach altrimenti potevo lasciare e usare ciclo for normale
+    console.log(wordA);
+    console.log(wordA.length);
+    let pos = [];
+    wordA.forEach(function(value, index) {
+        if (letter === value) {
+            pos.push(index);
+        }
+    })
+    console.log("pos", pos);
+    console.log(pos.length);
+    return pos;
+}
+
+
+// *** ---------- TEST ---------- *** //
+
+createKeyboard();
+var mysteryBox = isMystery();
+//var mysteryWord = misteryBox.word;
+var mysteryWord = "accavallavacca"
+console.log("mysteryWord", mysteryWord);
+var mysteryTip = mysteryBox.tip;
+console.log("mysteryTip", mysteryTip);
+function playGame(pippo) {
+    console.log(pippo);
+    checkLetter(pippo, mysteryWord);
+}
+
+
