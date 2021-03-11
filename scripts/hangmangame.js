@@ -136,6 +136,7 @@ function youWin() {
     disableKeyboard();
     theGame.win++;
     document.getElementById("provatemp").innerHTML = "Hai Vinto!<br/><button id='continuo' onclick='alfaOmega()'>CONTINUARE</button>";
+}
 
 // IT- Disattivare tutte le lettere della tastiera.
 // EN- Disable all keyboard.
