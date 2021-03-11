@@ -10,14 +10,14 @@ var kJson = '{ "keyboard" : [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
 
 // ---------- ///// ---------- // INIZIALIZZAZIONE // ---------- ///// ---------- //
 
-function startHangmanGame() {
+// IT- Inizializzo il gioco.
+// EN- Start the game.
+function playInit() {
     createKeyboard();
-    var mysteryBox = isMystery();
-    mysteryBox.ok = 0;
-    mysteryBox.ko = 0;
-    //mysteryBox.letters = [];
-    createWord(mysteryBox.word);
-    return mysteryBox;
+    var mysteryStart = isMysteryBox();
+    console.log("mystery", mysteryStart);
+    createWord(mysteryStart.word);
+    return mysteryStart;
 }
 
 // IT- Mostro a monitor la tastiera selezionata.
@@ -28,20 +28,21 @@ function createKeyboard () {
         return "<button class='endgame' id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
     }).join(" ");
 }
-// IT- Disattivare tutte le lettere della tastiera.
-// EN- Disable all keyboard.
-function disableKeyboard() {
-    let killKeyboard = document.getElementsByClassName("endgame");
-    for (let i=0; i<killKeyboard.length; i++) {
-        killKeyboard[i].disabled = true;
-    }
-}
 // IT- Carico i dati dal contenuto json.
 // EN- Load the data from the json content.
 function loadKeyboard (langJson) {
     return JSON.parse(langJson).keyboard;
 }
 
+// IT- Creo il box misterioso con tutti gli elementi per il gioco: parola, suggerimento, lettere indonivate, errori commessi.
+// EN- Create the mystery box with all the elements: word, tip, check letters, mistakes.
+function isMysteryBox() {
+    var mysteryBox = isMystery();
+    mysteryBox.ok = 0;
+    mysteryBox.ko = 0;
+    //mysteryBox.letters = [];
+    return mysteryBox;
+}
 // IT- Dall'intero gruppo di parole+suggerimenti estraggo casualmente quelli da utilizzare nel gioco.
 // EN- From the whole group of words+hints randomly extract the ones to use in the game.
 function isMystery() {
@@ -121,6 +122,14 @@ function showLetter (positions, letter) {
     }
 }
 
+// IT- Disattivare tutte le lettere della tastiera.
+// EN- Disable all keyboard.
+function disableKeyboard() {
+    let killKeyboard = document.getElementsByClassName("endgame");
+    for (let i=0; i<killKeyboard.length; i++) {
+        killKeyboard[i].disabled = true;
+    }
+}
 
 
 // *** ---------- TEST ---------- *** //
