@@ -7,11 +7,18 @@ var dJson = '{ "dataComputer": [' +
 var kJson = '{ "keyboard" : [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"] }';
 
 
+// ---------- ///// ---------- // L'ALFA & L'OMEGA // ---------- ///// ---------- //
+
+function alfaOmega() {
+    console.log("theGame", theGame);
+    mystery = playInit();
+}
+
 
 // ---------- ///// ---------- // INIZIALIZZAZIONE // ---------- ///// ---------- //
 
 // IT- Inizializzo il gioco.
-// EN- Start the game.
+// EN- Game's initialization.
 function playInit() {
     createKeyboard();
     var mysteryStart = isMysteryBox();
@@ -71,7 +78,8 @@ function createWord (word) {
 
 // ---------- ///// ---------- // GIOCO // ---------- ///// ---------- //
 
-
+// IT- Inizia il gioco.
+// EN- Game start.
 function playGame(letterChoice) {
     console.log(letterChoice);
     document.getElementById("key-"+letterChoice).disabled = true;
@@ -80,21 +88,14 @@ function playGame(letterChoice) {
     if (!checkResult.length) {
         mystery.ko++;
         console.log ("errori", mystery.ko);
-        if (mystery.ko === 3) {
-            alert("Perso");
-            disableKeyboard();
-        }
+        if (mystery.ko === 3) { youLose(); }
     }
     else {
         showLetter (checkResult, letterChoice);
         console.log("giusto");
-        if (mystery.ok === mystery.word.length) { 
-            alert("Vinto");
-            disableKeyboard();
-        }
+        if (mystery.ok === mystery.word.length) { youWin(); }
     }
 }
-
 
 // IT- Controllo la presenza della lettera nella parola.
 // EN- Check letter in the word.
@@ -122,6 +123,20 @@ function showLetter (positions, letter) {
     }
 }
 
+// IT- Sconfitta perché fatti troppi errori.
+// EN- Loss because you made too many mistakes.
+function youLose() {
+    disableKeyboard();
+    theGame.lose++;
+    document.getElementById("provatemp").innerHTML = "Hai Perso!<br/><button id='continuo' onclick='alfaOmega()'>CONTINUARE</button>";
+}
+// IT- Vittoria per parola indovinata.
+// EN- Victory by guessed word.
+function youWin() {
+    disableKeyboard();
+    theGame.win++;
+    document.getElementById("provatemp").innerHTML = "Hai Vinto!<br/><button id='continuo' onclick='alfaOmega()'>CONTINUARE</button>";
+
 // IT- Disattivare tutte le lettere della tastiera.
 // EN- Disable all keyboard.
 function disableKeyboard() {
@@ -132,7 +147,8 @@ function disableKeyboard() {
 }
 
 
-// *** ---------- TEST ---------- *** //
+// *** ---------- LIVE ---------- *** //
 
-var mystery = startHangmanGame();
-console.log("mystery", mystery);
+var theGame = { "win" : 0, "lose" : 0 };
+var mystery;
+alfaOmega();
