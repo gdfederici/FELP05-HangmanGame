@@ -88,7 +88,10 @@ function playGame(letterChoice) {
     if (!checkResult.length) {
         mystery.ko++;
         console.log ("errori", mystery.ko);
-        if (mystery.ko === 3) { youLose(); }
+        if (mystery.ko === 3) {
+            console.log("Tip", mystery.tip);
+        }
+        if (mystery.ko === 5) { youLose(); }
     }
     else {
         showLetter (checkResult, letterChoice);
