@@ -15,7 +15,7 @@ function startHangmanGame() {
     var mysteryBox = isMystery();
     mysteryBox.ok = 0;
     mysteryBox.ko = 0;
-    mysteryBox.letters = [];
+    //mysteryBox.letters = [];
     createWord(mysteryBox.word);
     return mysteryBox;
 }
@@ -25,8 +25,16 @@ function startHangmanGame() {
 function createKeyboard () {
     let jsonKeyboard = loadKeyboard(kJson);
     document.getElementById("hangmanKeyboard").innerHTML = jsonKeyboard.map(function(item) {
-        return "<button id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
+        return "<button class='endgame' id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
     }).join(" ");
+}
+// IT- Disattivare tutte le lettere della tastiera.
+// EN- Disable all keyboard.
+function disableKeyboard() {
+    let killKeyboard = document.getElementsByClassName("endgame");
+    for (let i=0; i<killKeyboard.length; i++) {
+        killKeyboard[i].disabled = true;
+    }
 }
 // IT- Carico i dati dal contenuto json.
 // EN- Load the data from the json content.
@@ -67,16 +75,23 @@ function playGame(letterChoice) {
     console.log(letterChoice);
     document.getElementById("key-"+letterChoice).disabled = true;
     var checkResult = checkLetter(letterChoice, mystery.word);
-    mystery.letters.push(letterChoice);
+    //mystery.letters.push(letterChoice);
     if (!checkResult.length) {
-
+        mystery.ko++;
+        console.log ("errori", mystery.ko);
+        if (mystery.ko === 3) {
+            alert("Perso");
+            disableKeyboard();
+        }
     }
     else {
         showLetter (checkResult, letterChoice);
         console.log("giusto");
-        //if (ok === mystery.word.length) { console.log("vinci");}
+        if (mystery.ok === mystery.word.length) { 
+            alert("Vinto");
+            disableKeyboard();
+        }
     }
-
 }
 
 
