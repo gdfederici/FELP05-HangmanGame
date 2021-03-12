@@ -1,10 +1,11 @@
 /*** VARIABLES ***/
-$color-back: #904830;
-$color-back_light: #d8d8c0;
-$color-back_dark: #301818;
-$color-text_light: #d8d8c0;
-$color-text_dark: #301818;
-$color-h: #c09060;
+$color__back: #904830;
+$color__back_light: #d8d8c0;
+$color__back_medium: #c09060;
+$color__back_dark: #301818;
+$color__text_light: #d8d8c0;
+$color__text_dark: #301818;
+$color__h: #c09060;
 
 $color_white: #ffffff;
 $color_graya: #aaaaaa;
@@ -20,13 +21,21 @@ $color_05: #301818;
 
 /*** BASECAMP ***/
 body {
-    background-color: $color-back;
-    color: $color-text_light;
+    background-color: $color__back;
+    color: $color__text_light;
 }
 h1 {
-    color: $color-h;
+    color: $color__h;
 }
 /*
 h3 {
     color: $color-text_white;
 }*/
+
+
+/*** MAIN ***/
+#score {
+    &_win, &_lose {
+        background-color: $color__back_medium;
+    }
+}
