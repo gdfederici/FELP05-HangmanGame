@@ -10,7 +10,6 @@ var kJson = '{ "keyboard" : [ "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", 
 // ---------- ///// ---------- // ALPHA & OMEGA // ---------- ///// ---------- //
 
 function alfaOmega() {
-    console.log("theGame", theGame);
     showScore(theGame);
     mystery = playInit();
 }
@@ -51,7 +50,6 @@ function createKeyboard () {
     document.getElementById("hangmanKeyboard__row_3").innerHTML = jsonKeyboard.slice(19, 26).map(function(item) {
         return "<button class='endgame key' id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
     }).join(" ");
-    console.log("plutonio", jsonKeyboard);
 }
 // IT- Carico i dati dal contenuto json.
 // EN- Load the data from the json content.
@@ -107,16 +105,12 @@ function cleanMonitor() {
 // IT- Inizia il gioco.
 // EN- Game start.
 function playGame(letterChoice) {
-    console.log(letterChoice);
     document.getElementById("key-"+letterChoice).disabled = true;
     var checkResult = checkLetter(letterChoice, mystery.word);
     mystery.letters.push(letterChoice);
-    console.log("lettere", mystery.letters);
     if (!checkResult.length) {
         mystery.ko++;
-        console.log ("errori", mystery.ko);
         mystery.errors.push(letterChoice);
-        console.log("lettere sbagliate", mystery.errors);
         document.getElementById("death_letter").innerHTML = mystery.errors.map(function(item) {
             return item;
         }).join(" ");
@@ -141,14 +135,12 @@ function playGame(letterChoice) {
 // EN- Check letter in the word.
 function checkLetter (letter, word) {
     let wordA = [...word]; // Trasformo stringa in array per utilizzare forEach altrimenti potevo lasciare e usare ciclo for normale
-    console.log(wordA);
     let positions = [];
     wordA.forEach(function(value, index) {
         if (letter.toUpperCase() === value.toUpperCase()) {
             positions.push(index);
         }
     })
-    console.log("positions", positions);
     return positions;
 }
 
@@ -156,7 +148,6 @@ function checkLetter (letter, word) {
 // EN- Show corret letter.
 function showLetter (positions, letter) {
     let howManyCheck = positions.length;
-    console.log("lettera", letter);
     for (i=0; i<howManyCheck; i++) {
         document.getElementById("place" + positions[i]).innerHTML = letter;
         mystery.ok++;
