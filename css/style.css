@@ -79,10 +79,6 @@ h4 {
 }
 
 /*** MAIN ***/
-/* Fulcro del gioco */
-/* Full game */
-/* Patibolo */
-/* Gallows */
 /* Contenitore per parola misteriosa, suggerimento ed errori. */
 /* Contenitore per parola misteriosa, suggerimento ed errori. */
 #mystery h3 {
@@ -132,10 +128,6 @@ h3 {
   background-color: #c09060;
 }
 
-/* Fulcro del gioco */
-/* Full game */
-/* Patibolo */
-/* Gallows */
 /* Contenitore per parola misteriosa, suggerimento ed errori. */
 /* Contenitore per parola misteriosa, suggerimento ed errori. */
 #mystery__word {
@@ -237,4 +229,7 @@ h1 {
   margin: 10px;
   border-radius: 4px;
 }
+
+/* Fine parita */
+/* End Game */
 /*# sourceMappingURL=style.css.map */

@@ -165,15 +165,21 @@ function showLetter (positions, letter) {
 function youLose() {
     disableKeyboard();
     theGame.lose++;
-    document.getElementById("provatemp").innerHTML = "Hai Perso!<br/><button id='continuo' onclick='alfaOmega()'>CONTINUARE</button>";
+    isEnd("Loser!");
 }
 // IT- Vittoria per parola indovinata.
 // EN- Victory by guessed word.
 function youWin() {
     disableKeyboard();
     theGame.win++;
-    document.getElementById("provatemp").innerHTML = "Hai Vinto!<br/><button id='continuo' onclick='alfaOmega()'>CONTINUARE</button>";
+    isEnd("Winner!");
 }
+// IT- Messaggio di fine partita.
+// EN- Endgame message.
+function isEnd(message) {
+    document.getElementById("winner-loser").innerHTML = "<p class='game_end'>" + message + "</p><div id='play_next'><p>Another play?</p><button class='play_yes' onclick='alfaOmega()'>Yes</button><button class='play_no' onclick='alfaOmega()'>No</button>";
+}
+
 
 // IT- Disattivare tutte le lettere della tastiera.
 // EN- Disable all keyboard.
