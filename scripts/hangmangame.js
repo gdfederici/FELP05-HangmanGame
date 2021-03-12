@@ -22,11 +22,12 @@ function alfaOmega() {
 // IT- Inizializzo il gioco.
 // EN- Game's initialization.
 function playInit() {
+    cleanMonitor();
+    document.getElementById("gallows").innerHTML = "<img src='img/hangman0.png'>";
     createKeyboard();
     var mysteryStart = isMysteryBox();
     console.log("mystery", mysteryStart);
     createWord(mysteryStart.word);
-    cleanMonitor();
     return mysteryStart;
 }
 
@@ -96,6 +97,7 @@ function createWord (word) {
 function cleanMonitor() {
     document.getElementById("mystery__tip").innerHTML = "";
     document.getElementById("death_letter").innerHTML = "";
+    document.getElementById("gallows").innerHTML = "";
 }
 
 // ---------- ///// ---------- // GIOCO // ---------- ///// ---------- //
