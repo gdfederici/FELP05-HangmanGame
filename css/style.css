@@ -90,8 +90,12 @@ h4 {
   line-height: 3rem;
 }
 
-#mystery__tip, #mystery__error {
+#mystery__tip {
   font-size: 1.6rem;
+}
+
+#mystery__error {
+  font-weight: 600;
 }
 
 /* Tastiera a monitor */
@@ -109,29 +113,27 @@ h4 {
 /*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
 /*** BASECAMP ***/
 body {
-  background-color: #904830;
-  color: #d8d8c0;
+  background-color: #d8d8c0;
+  color: #904830;
 }
 
 h1 {
-  color: #c09060;
+  color: #301818;
 }
 
-/*
-h3 {
-    color: $color-text_white;
-}*/
 /*** MAIN ***/
 /* Punteggio giocatore */
 /* Player score */
 #score_win, #score_lose {
   background-color: #c09060;
+  color: #d8d8c0;
 }
 
 /* Contenitore per parola misteriosa, suggerimento ed errori. */
 /* Contenitore per parola misteriosa, suggerimento ed errori. */
 #mystery__word {
   background: #301818;
+  color: #d8d8c0;
 }
 
 #mystery__error {
@@ -154,7 +156,8 @@ main {
 }
 
 h1 {
-  padding: 50px 0 30px 0;
+  padding: 25px 0 30px 0;
+  margin: 0 auto;
 }
 
 /*** MAIN ***/
@@ -183,28 +186,34 @@ h1 {
 /* Fulcro del gioco */
 /* Full game */
 #game {
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  padding: 35px 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 60%;
+  min-width: 800px;
   min-height: 400px;
+  padding: 15px 10px;
 }
 
 /* Patibolo */
 /* Gallows */
 #gallows {
   width: 50%;
-  min-width: 410px;
-  min-height: 537px;
+  min-width: 300px;
+  min-height: 400px;
+  padding: 15px 10px;
+  text-align: right;
 }
 
 /* Contenitore per parola misteriosa, suggerimento ed errori. */
 /* Contenitore per parola misteriosa, suggerimento ed errori. */
 #mystery {
   width: 50%;
-  padding: 35px 10px;
+  padding: 15px 10px;
   text-align: center;
 }
 

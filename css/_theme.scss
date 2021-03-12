@@ -1,36 +1,23 @@
 /*** VARIABLES ***/
-$color__back: #904830;
 $color__back_light: #d8d8c0;
 $color__back_medium: #c09060;
 $color__back_dark: #301818;
 $color__text_light: #d8d8c0;
+$color__text_medium: #904830;
 $color__text_dark: #301818;
-$color__h: #c09060;
+$color__h: #301818;
 
-$color_white: #ffffff;
-$color_graya: #aaaaaa;
-$color_gray5: #555555;
-$color_black: #000000;
-$color_01: #d8d8c0	;
-$color_02: #c09060;
-$color_03: #a87848;
-$color_04: #904830;
-$color_05: #301818;
 
 /*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
 
 /*** BASECAMP ***/
 body {
-    background-color: $color__back;
-    color: $color__text_light;
+    background-color: $color__back_light;
+    color: $color__text_medium;
 }
 h1 {
     color: $color__h;
 }
-/*
-h3 {
-    color: $color-text_white;
-}*/
 
 
 /*** MAIN ***/
@@ -40,6 +27,7 @@ h3 {
 #score {
     &_win, &_lose {
         background-color: $color__back_medium;
+        color: $color__text_light;
     }
 }
 
@@ -48,6 +36,7 @@ h3 {
 #mystery {
     &__word {
         background: $color__back_dark;
+        color: $color__text_light;
     }
     &__error {
         color: $color__text_dark;

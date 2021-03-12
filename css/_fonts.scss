@@ -116,8 +116,11 @@ h4 {
             line-height: $line-height_h3;
         }
     }
-    &__tip, &__error {
+    &__tip {
         font-size: 1.6rem;
+    }
+    &__error {
+        font-weight: $font-semibold;
     }
 }
 

@@ -10,7 +10,8 @@ main {
     margin: 0 auto 50px auto;
 }
 h1 {
-    padding: 50px 0 30px 0;
+    padding: 25px 0 30px 0;
+    margin: 0 auto;
 }
 
 
@@ -35,23 +36,28 @@ h1 {
 /* Fulcro del gioco */
 /* Full game */
 #game {
+    margin: 0 auto;
     display: flex;
-    justify-content: space-around;
-    padding: 35px 10px;
+    justify-content: center;
+    width: 60%;
+    min-width: 800px;
     min-height: 400px;
+    padding: 15px 10px;
 }
 /* Patibolo */
 /* Gallows */
 #gallows {
     width: 50%;
-    min-width: 410px;
-    min-height: 537px;
+    min-width: 300px;
+    min-height: 400px;
+    padding: 15px 10px;
+    text-align: right;
 }
 /* Contenitore per parola misteriosa, suggerimento ed errori. */
 /* Contenitore per parola misteriosa, suggerimento ed errori. */ 
 #mystery {
     width: 50%;
-    padding: 35px 10px;
+    padding: 15px 10px;
     text-align: center;
     &__word {
         padding: 20px 10px;
