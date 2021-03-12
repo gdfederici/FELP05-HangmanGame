@@ -61,6 +61,21 @@ h1 {
 }
 
 /*** MAIN ***/
+/* Fulcro del gioco */
+/* Full game */
+/* Patibolo */
+/* Gallows */
+/* Contenitore per parola misteriosa, suggerimento ed errori. */
+/* Contenitore per parola misteriosa, suggerimento ed errori. */
+#mystery h3 {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+#mystery__tip {
+  font-size: 1.6rem;
+}
+
 /* Tastiera a monitor */
 /* Keyboard */
 #hangmanKeyboard {
@@ -158,6 +173,10 @@ h1 {
   background-color: #000;
   text-align: center;
   width: 400px;
+}
+
+#mystery__word {
+  padding: 20px 10px;
 }
 
 /* Tastiera a monitor */

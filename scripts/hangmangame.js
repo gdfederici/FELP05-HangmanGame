@@ -87,7 +87,7 @@ function loadData(contentJson) {
 function createWord (word) {
     let wordA = [...word];
     var i=-1;
-    document.getElementById("deathWord").innerHTML = wordA.map(function(item) {
+    document.getElementById("death_word").innerHTML = wordA.map(function(item) {
         i++;
         return "<span id='place" + i + "' class='mystery_word'> _ </span>";
     }).join(" ");
@@ -107,14 +107,17 @@ function playGame(letterChoice) {
     if (!checkResult.length) {
         mystery.ko++;
         console.log ("errori", mystery.ko);
-        if (mystery.ko === 3) {
-            console.log("Tip", mystery.tip);
+        switch(mystery.ko) {
+            case 5:
+                youLose();
+                break;
+            case 3:
+                document.getElementById("mystery__tip").innerHTML = "<h3>Tip</h3><p id='death_tip'>" + mystery.tip + "</p>";
+                break;
         }
-        if (mystery.ko === 5) { youLose(); }
-    }
+        }
     else {
         showLetter (checkResult, letterChoice);
-        console.log("giusto");
         if (mystery.ok === mystery.word.length) { youWin(); }
     }
 }
