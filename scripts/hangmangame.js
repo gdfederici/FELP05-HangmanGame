@@ -117,8 +117,10 @@ function playGame(letterChoice) {
         document.getElementById("death_letter").innerHTML = mystery.errors.map(function(item) {
             return item;
         }).join(" ");
+        document.getElementById("gallows").innerHTML = "<img src='img/hangman" + mystery.ko + ".png'>";
         switch(mystery.ko) {
             case 5:
+                document.getElementById("gallows").innerHTML = "<img src='img/hangman5.png'>";
                 youLose();
                 break;
             case 3:

@@ -44,14 +44,14 @@ h1 {
 /* Gallows */
 #gallows {
     width: 50%;
-    border: 1px solid cyan;
+    min-width: 410px;
+    min-height: 537px;
 }
 /* Contenitore per parola misteriosa, suggerimento ed errori. */
 /* Contenitore per parola misteriosa, suggerimento ed errori. */ 
 #mystery {
     width: 50%;
     padding: 35px 10px;
-    border: 1px solid red;
     text-align: center;
     &__word {
         padding: 20px 10px;
