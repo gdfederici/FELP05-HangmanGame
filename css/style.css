@@ -60,6 +60,18 @@ h1 {
   text-transform: uppercase;
 }
 
+/*** MAIN ***/
+/* Tastiera a monitor */
+/* Keyboard */
+#hangmanKeyboard {
+  text-align: center;
+}
+
+#hangmanKeyboard button.key {
+  font-weight: 800;
+  line-height: 20px;
+}
+
 /*** VARIABLES ***/
 /*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
 /*** BASECAMP ***/
@@ -83,6 +95,8 @@ h3 {
   background-color: #c09060;
 }
 
+/* Tastiera a monitor */
+/* Keyboard */
 /*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
 /*** BASECAMP ***/
 main {
@@ -144,5 +158,15 @@ h1 {
   background-color: #000;
   text-align: center;
   width: 400px;
+}
+
+/* Tastiera a monitor */
+/* Keyboard */
+#hangmanKeyboard button.key {
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 4px;
 }
 /*# sourceMappingURL=style.css.map */

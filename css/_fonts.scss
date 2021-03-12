@@ -50,6 +50,7 @@ $font-size_normal: 2.0rem;
 $font-size_h1: 6.0rem;
 $font-size_h2: 4.2rem;
 $font-size_h3: 3.0rem;
+$line-height_button: 20px;
 $line-height_normal: 2.8rem;
 $line-height_h1: 7.5rem;
 $line-height_h2: 6.25rem;
@@ -76,4 +77,17 @@ h1 {
     letter-spacing: 0.05em;
     text-align: center;
     text-transform: uppercase;
+}
+
+
+/*** MAIN ***/
+
+/* Tastiera a monitor */
+/* Keyboard */
+#hangmanKeyboard {
+    text-align: center;
+    & button.key {
+        font-weight: $font_bold;
+        line-height: $line-height_button;
+    }
 }

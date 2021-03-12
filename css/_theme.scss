@@ -42,3 +42,10 @@ h3 {
         background-color: $color__back_medium;
     }
 }
+
+/* Tastiera a monitor */
+/* Keyboard */
+#hangmanKeyboard {
+    & button.key {
+    }
+}

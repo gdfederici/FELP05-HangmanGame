@@ -44,13 +44,13 @@ function createKeyboard () {
     */
     // Per stampare la tastiera su più righe, stile QWERTY, estraggo un vettore con le lettere di ciascuna riga e poi lo stampo.
     document.getElementById("hangmanKeyboard__row_1").innerHTML = jsonKeyboard.slice(0, 10).map(function(item) {
-        return "<button class='endgame' id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
+        return "<button class='endgame key' id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
     }).join(" ");
     document.getElementById("hangmanKeyboard__row_2").innerHTML = jsonKeyboard.slice(10, 19).map(function(item) {
-        return "<button class='endgame' id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
+        return "<button class='endgame key' id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
     }).join(" ");
     document.getElementById("hangmanKeyboard__row_3").innerHTML = jsonKeyboard.slice(19, 26).map(function(item) {
-        return "<button class='endgame' id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
+        return "<button class='endgame key' id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
     }).join(" ");
     console.log("plutonio", jsonKeyboard);
 }
