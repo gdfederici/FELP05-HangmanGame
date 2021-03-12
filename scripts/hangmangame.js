@@ -26,6 +26,7 @@ function playInit() {
     var mysteryStart = isMysteryBox();
     console.log("mystery", mysteryStart);
     createWord(mysteryStart.word);
+    cleanMonitor();
     return mysteryStart;
 }
 
@@ -33,9 +34,6 @@ function playInit() {
 // EN- Keyboard on the monitor.
 function createKeyboard () {
     let jsonKeyboard = loadKeyboard(kJson);
-    let rowFirst = jsonKeyboard.slice(0, 10);
-    let rowSecond = jsonKeyboard.slice(10, 18);
-    let rowThird = jsonKeyboard.slice(18, 24);
     /*
     // Per stampare tutta la tastiera su un'unica riga
     document.getElementById("hangmanKeyboard").innerHTML = jsonKeyboard.map(function(item) {
@@ -66,7 +64,8 @@ function isMysteryBox() {
     var mysteryBox = isMystery();
     mysteryBox.ok = 0;
     mysteryBox.ko = 0;
-    //mysteryBox.letters = [];
+    mysteryBox.letters = [];
+    mysteryBox.errors = [];
     return mysteryBox;
 }
 // IT- Dall'intero gruppo di parole+suggerimenti estraggo casualmente quelli da utilizzare nel gioco.
@@ -93,6 +92,11 @@ function createWord (word) {
     }).join(" ");
 }
 
+// IT- Pulisco i resti del gioco precedente.
+function cleanMonitor() {
+    document.getElementById("mystery__tip").innerHTML = "";
+    document.getElementById("death_letter").innerHTML = "";
+}
 
 // ---------- ///// ---------- // GIOCO // ---------- ///// ---------- //
 // ---------- ///// ---------- // PLAY // ---------- ///// ---------- //
@@ -103,16 +107,22 @@ function playGame(letterChoice) {
     console.log(letterChoice);
     document.getElementById("key-"+letterChoice).disabled = true;
     var checkResult = checkLetter(letterChoice, mystery.word);
-    //mystery.letters.push(letterChoice);
+    mystery.letters.push(letterChoice);
+    console.log("lettere", mystery.letters);
     if (!checkResult.length) {
         mystery.ko++;
         console.log ("errori", mystery.ko);
+        mystery.errors.push(letterChoice);
+        console.log("lettere sbagliate", mystery.errors);
+        document.getElementById("death_letter").innerHTML = mystery.errors.map(function(item) {
+            return item;
+        }).join(" ");
         switch(mystery.ko) {
             case 5:
                 youLose();
                 break;
             case 3:
-                document.getElementById("mystery__tip").innerHTML = "<h3>Tip</h3><p id='death_tip'>" + mystery.tip + "</p>";
+                document.getElementById("mystery__tip").innerHTML = "<h4>Tip</h4><p id='death_tip'>" + mystery.tip + "</p>";
                 break;
         }
         }
