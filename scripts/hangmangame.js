@@ -7,15 +7,17 @@ var dJson = '{ "dataComputer": [' +
 var kJson = '{ "keyboard" : [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"] }';
 
 
-// ---------- ///// ---------- // L'ALFA & L'OMEGA // ---------- ///// ---------- //
+// ---------- ///// ---------- // ALPHA & OMEGA // ---------- ///// ---------- //
 
 function alfaOmega() {
     console.log("theGame", theGame);
+    showScore(theGame);
     mystery = playInit();
 }
 
 
 // ---------- ///// ---------- // INIZIALIZZAZIONE // ---------- ///// ---------- //
+// ---------- ///// ---------- // THE BEGINNING // ---------- ///// ---------- //
 
 // IT- Inizializzo il gioco.
 // EN- Game's initialization.
@@ -55,7 +57,6 @@ function isMysteryBox() {
 function isMystery() {
     let mysteryObj = loadData(dJson);
     let luck = Math.floor(Math.random() * mysteryObj.length);
-    console.log("MBOX", mysteryObj[luck]);
     return mysteryObj[luck];
 }
 // IT- Carico i dati dal contenuto json.
@@ -69,7 +70,7 @@ function loadData(contentJson) {
 function createWord (word) {
     let wordA = [...word];
     var i=-1;
-    document.getElementById("deathWord").innerHTML = wordA.map(function(item) {
+    document.getElementById("mystery__word").innerHTML = wordA.map(function(item) {
         i++;
         return "<span id='place" + i + "' class='mystery_word'> _ </span>";
     }).join(" ");
@@ -77,6 +78,7 @@ function createWord (word) {
 
 
 // ---------- ///// ---------- // GIOCO // ---------- ///// ---------- //
+// ---------- ///// ---------- // PLAY // ---------- ///// ---------- //
 
 // IT- Inizia il gioco.
 // EN- Game start.
@@ -148,6 +150,14 @@ function disableKeyboard() {
     for (let i=0; i<killKeyboard.length; i++) {
         killKeyboard[i].disabled = true;
     }
+}
+
+
+// ---------- ///// ---------- // ABRACADABRA // ---------- ///// ---------- //
+// ---------- ///// ---------- // NOW YOU SEE // ---------- ///// ---------- //
+
+function showScore (result) {
+    document.getElementById("score").innerHTML = "<div id='score_win'><h3>Win:</h3><p>" + result.win + "</p></div><div id='score_lose'><h3>Lose:</h3><p>" + result.lose + "</p></div>";
 }
 
 

@@ -77,4 +77,13 @@ h3 {
     color: $color-text_white;
 }*/
 /*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
+/*** BASECAMP ***/
+main {
+  width: 80%;
+  margin: 0 auto 50px auto;
+}
+
+h1 {
+  padding: 50px 0 35px 0;
+}
 /*# sourceMappingURL=style.css.map */
