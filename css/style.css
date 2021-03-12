@@ -1,0 +1,66 @@
+/*** FONTS ***/
+:root {
+  font-size: 62.5%;
+  /* px->rem in base 10 */
+}
+
+/* stick-regular - latin */
+@font-face {
+  font-family: 'Stick';
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/stick-v1-latin-regular.woff2") format("woff2"), url("../fonts/stick-v1-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* rubik-regular - latin */
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/rubik-v12-latin-regular.woff2") format("woff2"), url("../fonts/rubik-v12-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* rubik-600 - latin */
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  src: local(""), url("../fonts/rubik-v12-latin-600.woff2") format("woff2"), url("../fonts/rubik-v12-latin-600.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* rubik-800 - latin */
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 800;
+  src: local(""), url("../fonts/rubik-v12-latin-800.woff2") format("woff2"), url("../fonts/rubik-v12-latin-800.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/*** VARIABLES ***/
+/*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
+/*** BASECAMP ***/
+body {
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+}
+
+h1 {
+  font-family: "Stick", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 5rem;
+  line-height: 7.5rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/*** VARIABLES ***/
+/*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
+/*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
+/*# sourceMappingURL=style.css.map */
