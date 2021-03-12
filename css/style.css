@@ -60,6 +60,24 @@ h1 {
   text-transform: uppercase;
 }
 
+h3 {
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 2.6rem;
+  line-height: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 2.3rem;
+  line-height: 2.6rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 /*** MAIN ***/
 /* Fulcro del gioco */
 /* Full game */
@@ -72,7 +90,11 @@ h1 {
   font-weight: 600;
 }
 
-#mystery__tip {
+#mystery__word #death_word {
+  line-height: 3rem;
+}
+
+#mystery__tip, #mystery__error {
   font-size: 1.6rem;
 }
 
@@ -110,8 +132,27 @@ h3 {
   background-color: #c09060;
 }
 
+/* Fulcro del gioco */
+/* Full game */
+/* Patibolo */
+/* Gallows */
+/* Contenitore per parola misteriosa, suggerimento ed errori. */
+/* Contenitore per parola misteriosa, suggerimento ed errori. */
+#mystery__word {
+  background: #301818;
+}
+
+#mystery__error {
+  color: #301818;
+}
+
 /* Tastiera a monitor */
 /* Keyboard */
+#hangmanKeyboard button.key {
+  border: #301818;
+  color: #301818;
+}
+
 /*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
 /*** BASECAMP ***/
 main {
@@ -156,27 +197,35 @@ h1 {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   padding: 35px 10px;
+  min-height: 400px;
 }
 
 /* Patibolo */
 /* Gallows */
 #gallows {
-  width: 400px;
-  height: 400px;
-  background-color: #0f0;
+  width: 50%;
+  border: 1px solid cyan;
 }
 
 /* Contenitore per parola misteriosa, suggerimento ed errori. */
 /* Contenitore per parola misteriosa, suggerimento ed errori. */
 #mystery {
+  width: 50%;
   padding: 35px 10px;
-  background-color: #000;
+  border: 1px solid red;
   text-align: center;
-  width: 400px;
 }
 
 #mystery__word {
   padding: 20px 10px;
+}
+
+#mystery__error {
+  padding: 20px 0;
+}
+
+#mystery__tip #death_tip {
+  font-style: italic;
 }
 
 /* Tastiera a monitor */

@@ -43,5 +43,28 @@ h3 {
     }
 }
 
+/* Fulcro del gioco */
+/* Full game */
+
+/* Patibolo */
+/* Gallows */
+
+/* Contenitore per parola misteriosa, suggerimento ed errori. */
+/* Contenitore per parola misteriosa, suggerimento ed errori. */ 
+#mystery {
+    &__word {
+        background: $color__back_dark;
+    }
+    &__error {
+        color: $color__text_dark;
+    }
+}
+
 /* Tastiera a monitor */
 /* Keyboard */
+#hangmanKeyboard {
+    & button.key {
+        border: $color__back_dark;
+        color: $color__text_dark;
+    }
+}

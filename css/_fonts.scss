@@ -49,12 +49,14 @@ $font_bold: 800;
 $font-size_normal: 2.0rem;
 $font-size_h1: 6.0rem;
 $font-size_h2: 4.2rem;
-$font-size_h3: 3.0rem;
+$font-size_h3: 2.6rem;
+$font-size_h4: 2.3rem;
 $line-height_button: 20px;
 $line-height_normal: 2.8rem;
 $line-height_h1: 7.5rem;
 $line-height_h2: 6.25rem;
-$line-height_h3: 4.0rem;
+$line-height_h3: 3.0rem;
+$line-height_h4: 2.6rem;
 
 /*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
 
@@ -78,6 +80,26 @@ h1 {
     text-align: center;
     text-transform: uppercase;
 }
+h3 {
+    font: {
+        family: $font-p;
+        weight: $font_semibold;
+        size: $font-size_h3;
+    }
+    line-height: $line-height_h3;
+    text-align: center;
+    text-transform: uppercase;
+}
+h4 {
+    font: {
+        family: $font-p;
+        weight: $font_semibold;
+        size: $font-size_h4;
+    }
+    line-height: $line-height_h4;
+    text-align: center;
+    text-transform: uppercase;
+}
 
 
 /*** MAIN ***/
@@ -93,7 +115,12 @@ h1 {
     text-transform: uppercase;
     font-weight: $font-semibold;
     }
-    &__tip {
+    &__word {
+        & #death_word {
+            line-height: $line-height_h3;
+        }
+    }
+    &__tip, &__error {
         font-size: 1.6rem;
     }
 }

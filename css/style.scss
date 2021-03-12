@@ -38,23 +38,29 @@ h1 {
     display: flex;
     justify-content: space-around;
     padding: 35px 10px;
+    min-height: 400px;
 }
 /* Patibolo */
 /* Gallows */
 #gallows {
-    width: 400px;
-    height: 400px;
-    background-color: #0f0;
+    width: 50%;
+    border: 1px solid cyan;
 }
 /* Contenitore per parola misteriosa, suggerimento ed errori. */
 /* Contenitore per parola misteriosa, suggerimento ed errori. */ 
 #mystery {
+    width: 50%;
     padding: 35px 10px;
-    background-color: #000;
+    border: 1px solid red;
     text-align: center;
-    width: 400px;
     &__word {
         padding: 20px 10px;
+    }
+    &__error {
+        padding: 20px 0;
+    }
+    &__tip {
+        & #death_tip { font-style: italic; }
     }
 }
 
