@@ -133,3 +133,12 @@ h4 {
         line-height: $line-height_button;
     }
 }
+
+/* Fine parita */
+/* End Game */
+.play_next {
+    & button {
+        text-transform: uppercase;
+        font-weight: $font-bold;
+    }
+}

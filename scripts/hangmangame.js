@@ -98,6 +98,7 @@ function cleanMonitor() {
     document.getElementById("mystery__tip").innerHTML = "";
     document.getElementById("death_letter").innerHTML = "";
     document.getElementById("gallows").innerHTML = "";
+    document.getElementById("winner-loser").innerHTML = "";
 }
 
 // ---------- ///// ---------- // GIOCO // ---------- ///// ---------- //
@@ -167,24 +168,30 @@ function showLetter (positions, letter) {
 function youLose() {
     disableKeyboard();
     theGame.lose++;
-    isEnd("Loser!");
+    isEnd("<h4>Loser!</h4>" + "<p>Mystery word is<br/><span class='word_revealed'>" + mystery.word + "</span></p>");
 }
 // IT- Vittoria per parola indovinata.
 // EN- Victory by guessed word.
 function youWin() {
     disableKeyboard();
     theGame.win++;
-    isEnd("Winner!");
+    isEnd("<h4>Winner!</h4>");
 }
 // IT- Messaggio di fine partita.
 // EN- Endgame message.
 function isEnd(message) {
-    document.getElementById("winner-loser").innerHTML = "<p class='game_end'>" + message + "</p>" +
-                                                        "<div id='play_next'>" +
+    document.getElementById("winner-loser").innerHTML = "<div class='game_end'>" + message + "</div>" +
+                                                        "<div class='play_next'>" +
                                                             "<p>Another play?</p>" +
                                                             "<button class='play_yes' onclick='alfaOmega()'>Yes</button>" +
-                                                            "<button class='play_no' onclick='alfaOmega()'>No</button>" +
+                                                            "<button class='play_no' onclick='isOmega()'>No</button>" +
                                                         "</div>";
+}
+// IT- Messaggio di fine gioco.
+// EN- Final message.
+function isOmega() {
+    document.getElementById("main").innerHTML = "";
+    document.getElementById("main").innerHTML = "<h1 class='omega-message'>Thanks for playing!</h1>";
 }
 
 // IT- Disattivare tutte le lettere della tastiera.

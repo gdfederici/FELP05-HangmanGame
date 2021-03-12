@@ -109,6 +109,13 @@ h4 {
   line-height: 20px;
 }
 
+/* Fine parita */
+/* End Game */
+.play_next button {
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
 /*** VARIABLES ***/
 /*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
 /*** BASECAMP ***/
@@ -145,6 +152,23 @@ h1 {
 #hangmanKeyboard button.key {
   border: #301818;
   color: #301818;
+}
+
+/* End Game */
+.game_end {
+  border-color: #301818;
+  background-color: #301818;
+  color: #d8d8c0;
+}
+
+.play_next button {
+  background-color: #c09060;
+  border: #301818;
+  color: #301818;
+}
+
+.omega-message {
+  background-color: #c09060;
 }
 
 /*** ------------------------- *** ------------------------- *** ------------------------- *** ------------------------- ***/
@@ -241,4 +265,33 @@ h1 {
 
 /* Fine parita */
 /* End Game */
+#winner-loser {
+  margin: 50px auto 25px auto;
+  width: 50%;
+}
+
+.game_end {
+  padding: 25px;
+  border: 2px solid;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.play_next {
+  margin: 25px auto;
+  text-align: center;
+}
+
+.play_next button {
+  padding: 10px;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 4px;
+}
+
+.omega-message {
+  margin: 100px auto;
+  padding: 50px;
+}
 /*# sourceMappingURL=style.css.map */
