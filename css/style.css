@@ -77,6 +77,8 @@ h3 {
     color: $color-text_white;
 }*/
 /*** MAIN ***/
+/* Punteggio giocatore */
+/* Player score */
 #score_win, #score_lose {
   background-color: #c09060;
 }
@@ -93,6 +95,8 @@ h1 {
 }
 
 /*** MAIN ***/
+/* Punteggio giocatore */
+/* Player score */
 #score {
   text-align: center;
   display: -webkit-box;
@@ -111,5 +115,33 @@ h1 {
   padding: 5px 20px;
   margin: 0 10px;
   width: 7.5%;
+}
+
+/* Fulcro del gioco */
+/* Full game */
+#game {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 35px 10px;
+}
+
+/* Patibolo */
+/* Gallows */
+#gallows {
+  width: 400px;
+  height: 400px;
+  background-color: #0f0;
+}
+
+/* Contenitore per parola misteriosa, suggerimento ed errori. */
+/* Contenitore per parola misteriosa, suggerimento ed errori. */
+#mystery {
+  padding: 35px 10px;
+  background-color: #000;
+  text-align: center;
+  width: 400px;
 }
 /*# sourceMappingURL=style.css.map */

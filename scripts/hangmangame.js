@@ -4,7 +4,7 @@ var dJson = '{ "dataComputer": [' +
     '{"word":"ACCOUNT", "tip":"The position of a user relative to a computer system, with which access and action permissions are defined."},' +
     '{"word":"APACHE", "tip":"Open Source software with WEB server function available for UNIX, Linux, Windows and other operating systems."},' +
     '{"word":"ARPANET", "tip":"Computer network created in the sixties of the twentieth century by the ARPA agency of the US Department of Defense. Now decommissioned, it has been the technological base from which the modern Internet is derived."} ]}';
-var kJson = '{ "keyboard" : [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"] }';
+var kJson = '{ "keyboard" : [ "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"] }';
 
 
 // ---------- ///// ---------- // ALPHA & OMEGA // ---------- ///// ---------- //
@@ -70,7 +70,7 @@ function loadData(contentJson) {
 function createWord (word) {
     let wordA = [...word];
     var i=-1;
-    document.getElementById("mystery__word").innerHTML = wordA.map(function(item) {
+    document.getElementById("deathWord").innerHTML = wordA.map(function(item) {
         i++;
         return "<span id='place" + i + "' class='mystery_word'> _ </span>";
     }).join(" ");
