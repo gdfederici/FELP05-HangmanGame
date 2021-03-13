@@ -3,36 +3,37 @@
 var dJson = '{ "dataComputer": [' +
     '{"word":"ACCOUNT", "tip":"The position of a user relative to a computer system, with which access and action permissions are defined."},' +
     '{"word":"APACHE", "tip":"Open Source software with WEB server function available for UNIX, Linux, Windows and other operating systems."},' +
-    '{"word":"ARPANET", "tip":"Computer network created in the sixties of the twentieth century by the ARPA agency of the US Department of Defense. Now decommissioned, it has been the technological base from which the modern Internet is derived."} ]}' +
-    '{"word":"BACKDOOR", "tip":"Undocumented access route left in an application by its programmer, to access it secretly."}' +
-    '{"word":"BACKUP", "tip":"An operation consisting in copying important files on a medium, in order to restore the system and not to lose data in case of theft, damage or malfunction of the computer."}' +
-    '{"word":"BROWSER", "tip":"Client software capable of displaying resources provided by a web server."}' +
-    '{"word":"BUFFER", "tip":"Memory space where data is temporarily stored waiting to be sent to a device."}' +
-    '{"word":"CLIENT", "tip":"Application that allows the user to access the services offered by a server."}' +
-    '{"word":"COOKIE", "tip":"Small amount of data that a web server can write to the user\'s client computer, usually for the purpose of recognizing it on a subsequent visit."}' +
-    '{"word":"DATABASE", "tip":"Set of information structured in an accessible way for the machine."}' +
-    '{"word":"DESKTOP", "tip":"Workspace of a window manager on which application windows are opened."}' +
-    '{"word":"DIRECTORY", "tip":"In a filesystem is a binder within which files or other binders can be contained."}' +
-    '{"word":"EDITOR", "tip":"Program used to view and edit a file."}' +
-    '{"word":"FILESYSTEM", "tip":"Structure with which the operating system stores files on memory drives."}' +
-    '{"word":"FIREWALL", "tip":"Hardware or software that controls and filters data traffic between a network or host and the rest of the Internet, in order to prevent unauthorized access and / or abuse."}' +
-    '{"word":"HARDWARE", "tip":"It constitutes everything that is tangible in a computer, as opposed to software."}' +
-    '{"word":"JAVASCRIPT", "tip":"interpreted language which can be inserted into HTML pages to create dynamic elements."}' +
-    '{"word":"KERNEL", "tip":"It is the fundamental part of the operating system, which deals with the interaction with hardware and the fundamental input / output functions."}' +
-    '{"word":"LOGIN", "tip":"Operation with which an accredited user is recognized by the system by entering the name and password upon access."}' +
-    '{"word":"LOGOFF", "tip":"The opposite of login, a user logging out of the system."}' +
-    '{"word":"MODEM", "tip":"Device that allows the connection of two computer systems through the normal telephone line."}' +
-    '{"word":"PASSWORD", "tip":"Secret word requested by the user during login for his identification."}' +
-    '{"word":"PLUGIN", "tip":"Software module that adds a new specific function to an existing application."}' +
-    '{"word":"PROVIDER", "tip":"Company that provides the connection to the Internet and/or other IT services."}' +
-    '{"word":"REGEXP", "tip":"Encoding method for defining the matching of character sequences"}' +
-    '{"word":"ROUTER", "tip":"Machine that takes care of routing the TCP/IP packets to the destination host, defined by the IP address contained in the packet itself."}' +
-    '{"word":"SERVER", "tip":"A process running on a computer whose purpose is to wait for and fulfill a client\'s requests. By extension also the machine that hosts it."}' +
-    '{"word":"STREAMING", "tip":"Real-time transmission of audio / video streams over the Internet."}' +
-    '{"word":"TELNET", "tip":"Procedure for accessing a remote terminal via the Internet."}' +
-    '{"word":"VIRUS", "tip":"Program generally with malicious purposes able to replicate itself by exploiting the resources of a system and attaching itself to executable files"}' +
-    '{"word":"WIRELESS", "tip":"Interconnection system that does not use wires, but radio waves or sometimes infrared rays."}' +
-    '{"word":"WYSIWYG", "tip":"Said of programs that show the job on the screen exactly as it will be printed on paper."}';
+    '{"word":"ARPANET", "tip":"Computer network created in the sixties of the twentieth century by the ARPA agency of the US Department of Defense. Now decommissioned, it has been the technological base from which the modern Internet is derived."},' +
+    '{"word":"BACKDOOR", "tip":"Undocumented access route left in an application by its programmer, to access it secretly."},' +
+    '{"word":"BACKUP", "tip":"An operation consisting in copying important files on a medium, in order to restore the system and not to lose data in case of theft, damage or malfunction of the computer."},' +
+    '{"word":"BROWSER", "tip":"Client software capable of displaying resources provided by a web server."},' +
+    '{"word":"BUFFER", "tip":"Memory space where data is temporarily stored waiting to be sent to a device."},' +
+    '{"word":"CLIENT", "tip":"Application that allows the user to access the services offered by a server."},' +
+    '{"word":"COOKIE", "tip":"Small amount of data that a web server can write to the user\'s client computer, usually for the purpose of recognizing it on a subsequent visit."},' +
+    '{"word":"DATABASE", "tip":"Set of information structured in an accessible way for the machine."},' +
+    '{"word":"DESKTOP", "tip":"Workspace of a window manager on which application windows are opened."},' +
+    '{"word":"DIRECTORY", "tip":"In a filesystem is a binder within which files or other binders can be contained."},' +
+    '{"word":"EDITOR", "tip":"Program used to view and edit a file."},' +
+    '{"word":"FILESYSTEM", "tip":"Structure with which the operating system stores files on memory drives."},' +
+    '{"word":"FIREWALL", "tip":"Hardware or software that controls and filters data traffic between a network or host and the rest of the Internet, in order to prevent unauthorized access and / or abuse."},' +
+    '{"word":"HARDWARE", "tip":"It constitutes everything that is tangible in a computer, as opposed to software."},' +
+    '{"word":"JAVASCRIPT", "tip":"interpreted language which can be inserted into HTML pages to create dynamic elements."},' +
+    '{"word":"KERNEL", "tip":"It is the fundamental part of the operating system, which deals with the interaction with hardware and the fundamental input / output functions."},' +
+    '{"word":"LOGIN", "tip":"Operation with which an accredited user is recognized by the system by entering the name and password upon access."},' +
+    '{"word":"LOGOFF", "tip":"The opposite of login, a user logging out of the system."},' +
+    '{"word":"MODEM", "tip":"Device that allows the connection of two computer systems through the normal telephone line."},' +
+    '{"word":"PASSWORD", "tip":"Secret word requested by the user during login for his identification."},' +
+    '{"word":"PLUGIN", "tip":"Software module that adds a new specific function to an existing application."},' +
+    '{"word":"PROVIDER", "tip":"Company that provides the connection to the Internet and/or other IT services."},' +
+    '{"word":"REGEXP", "tip":"Encoding method for defining the matching of character sequences"},' +
+    '{"word":"ROUTER", "tip":"Machine that takes care of routing the TCP/IP packets to the destination host, defined by the IP address contained in the packet itself."},' +
+    '{"word":"SERVER", "tip":"A process running on a computer whose purpose is to wait for and fulfill a client\'s requests. By extension also the machine that hosts it."},' +
+    '{"word":"STREAMING", "tip":"Real-time transmission of audio / video streams over the Internet."},' +
+    '{"word":"TELNET", "tip":"Procedure for accessing a remote terminal via the Internet."},' +
+    '{"word":"VIRUS", "tip":"Program generally with malicious purposes able to replicate itself by exploiting the resources of a system and attaching itself to executable files"},' +
+    '{"word":"WIRELESS", "tip":"Interconnection system that does not use wires, but radio waves or sometimes infrared rays."},' +
+    '{"word":"WYSIWYG", "tip":"Said of programs that show the job on the screen exactly as it will be printed on paper."}' +
+    '] }';
 var kJson = '{ "keyboard" : [ "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"] }';
 
 
