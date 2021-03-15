@@ -4,7 +4,7 @@
 <br/>
 
 ## Anteprima / Screenshot:
-(https://github.com/gdfederici/JS_LP03-HangmanGame_01/blob/main/img/screenshot.jpg)
+![Screenshot of project](https://github.com/gdfederici/JS_LP03-HangmanGame_01/blob/main/img/screenshot.jpg)
 
 ## Descrizione / Description:
 **IT_** Nel gioco dell'impiccato occorre indovinare una parola misteriosa scelta a caso.<br/>
