@@ -41,7 +41,7 @@ var kJson = '{ "keyboard" : [ "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", 
 
 function alfaOmega() {
     showScore(theGame);
-    var kJson = require("scripts/hangmandata.json");
+    var dJson = require("scripts/hangmandata.json");
     mystery = playInit();
 }
 
