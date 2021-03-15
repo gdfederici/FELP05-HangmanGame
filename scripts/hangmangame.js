@@ -1,5 +1,5 @@
 
-// Appoggio termporaneo json
+// Appoggio temporaneo json
 var dJson = '{ "dataComputer": [' +
     '{"word":"ACCOUNT", "tip":"The position of a user relative to a computer system, with which access and action permissions are defined."},' +
     '{"word":"APACHE", "tip":"Open Source software with WEB server function available for UNIX, Linux, Windows and other operating systems."},' +
@@ -65,12 +65,12 @@ function playInit() {
 function createKeyboard () {
     let jsonKeyboard = loadData(kJson, "keyboard");
     /*
-    // Per stampare tutta la tastiera su un'unica riga
+    // Per stampare tutta la tastiera su un'unica riga | To print the entire keyboard on one line
     document.getElementById("hangmanKeyboard").innerHTML = jsonKeyboard.map(function(item) {
         return "<button class='endgame' id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
     }).join(" ");
     */
-    // Per stampare la tastiera su più righe, stile QWERTY, estraggo un vettore con le lettere di ciascuna riga e poi lo stampo.
+    // Per stampare la tastiera su più righe, stile QWERTY, estraggo un vettore con le lettere di ciascuna riga e poi lo stampo. | To print the keyboard on multiple lines, QWERTY style, I extract a vector with the letters of each line and then I print it.
     document.getElementById("hangmanKeyboard__row_1").innerHTML = jsonKeyboard.slice(0, 10).map(function(item) {
         return "<button class='endgame key' id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
     }).join(" ");
@@ -130,16 +130,45 @@ function cleanMonitor() {
     document.getElementById("winner-loser").innerHTML = "";
 }
 
+
+// ---------- ///// ---------- // AGGIUNTA TASTIERA // ---------- ///// ---------- //
+// ---------- ///// ---------- // ADD KEYBOARD // ---------- ///// ---------- //
+// IT- Input da tastiera.
+// EN- Keyboard input.
+function realKeyboard(e)  {
+    var keyPress = e.key.toUpperCase();
+    var twoAreTooMuch = 0;
+    mystery.letters.forEach(function(value, index) { // Controlliamo che la lettera sulla tastiera non sia stata già premuta in precedenza. | We check that the letter on the keyboard has not already been pressed before.
+        if (keyPress === value.toUpperCase()) {
+            twoAreTooMuch++;
+        }
+    });
+    if ((!twoAreTooMuch) && (mystery.ko<5)) { // !0 cioè se la lettera è nuova e non abbiamo ancora perso allora giochiamo, altrimenti ignoriamo l'imput. | If the letter is new and we haven't lost yet then let's play, otherwise we ignore the input.
+        playGame(keyPress);
+    }
+    if (mystery.ko === 5) {
+        switch (keyPress) {
+            case "Y": 
+                alfaOmega();
+                break;
+            case "N":
+                isOmega();
+                break;
+            default:
+        }
+    } 
+}
+
+
 // ---------- ///// ---------- // GIOCO // ---------- ///// ---------- //
 // ---------- ///// ---------- // PLAY // ---------- ///// ---------- //
-
 // IT- Inizia il gioco.
 // EN- Game start.
 function playGame(letterChoice) {
     document.getElementById("key-"+letterChoice).disabled = true;
     var checkResult = checkLetter(letterChoice, mystery.word);
     mystery.letters.push(letterChoice);
-    if (!checkResult.length) { // !0 cioè se il vettore con le posizioni di controllo è vuoto. 
+    if (!checkResult.length) { // !0 cioè se il vettore con le posizioni di controllo è vuoto. | If the vector with the control positions is empty.
         mystery.ko++;
         mystery.errors.push(letterChoice);
         document.getElementById("death_letter").innerHTML = mystery.errors.map(function(item) {
@@ -164,7 +193,7 @@ function playGame(letterChoice) {
 // IT- Controllo la presenza della lettera nella parola.
 // EN- Check letter in the word.
 function checkLetter (letter, word) {
-    let wordA = [...word]; // Trasformo stringa in array per utilizzare forEach altrimenti potevo lasciare e usare ciclo for normale.
+    let wordA = [...word]; // Trasformo stringa in array per utilizzare forEach altrimenti potevo lasciare e usare ciclo for normale. | I transform string into array to use forEach otherwise I could leave and use normal for loop.
     let positions = [];
     wordA.forEach(function(value, index) {
         if (letter.toUpperCase() === value.toUpperCase()) {
@@ -217,7 +246,7 @@ function isOmega() {
 // IT- Disattivare tutte le lettere della tastiera.
 // EN- Disable all keyboard.
 function disableKeyboard() {
-    let killKeyboard = document.getElementsByClassName("endgame"); // ByClassName restituisce un insieme di elementi di quella classe.
+    let killKeyboard = document.getElementsByClassName("endgame"); // ByClassName restituisce un insieme di elementi di quella classe. | ByClassName returns a collection of elements of that class.
     for (let i=0; i<killKeyboard.length; i++) {
         killKeyboard[i].disabled = true;
     }
