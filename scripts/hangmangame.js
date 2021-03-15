@@ -1,6 +1,6 @@
 
 // Appoggio termporaneo json
-/*var dJson = '{ "dataComputer": [' +
+var dJson = '{ "dataComputer": [' +
     '{"word":"ACCOUNT", "tip":"The position of a user relative to a computer system, with which access and action permissions are defined."},' +
     '{"word":"APACHE", "tip":"Open Source software with WEB server function available for UNIX, Linux, Windows and other operating systems."},' +
     '{"word":"ARPANET", "tip":"Computer network created in the sixties of the twentieth century by the ARPA agency of the US Department of Defense. Now decommissioned, it has been the technological base from which the modern Internet is derived."},' +
@@ -33,7 +33,7 @@
     '{"word":"VIRUS", "tip":"Program generally with malicious purposes able to replicate itself by exploiting the resources of a system and attaching itself to executable files"},' +
     '{"word":"WIRELESS", "tip":"Interconnection system that does not use wires, but radio waves or sometimes infrared rays."},' +
     '{"word":"WYSIWYG", "tip":"Said of programs that show the job on the screen exactly as it will be printed on paper."}' +
-    '] }';*/
+    '] }';
 var kJson = '{ "keyboard" : [ "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"] }';
 
 
@@ -41,8 +41,6 @@ var kJson = '{ "keyboard" : [ "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", 
 
 function alfaOmega() {
     showScore(theGame);
-    var dJson;
-    import dJson from "scripts/hangmandata.json";
     mystery = playInit();
 }
 
