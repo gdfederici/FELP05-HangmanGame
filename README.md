@@ -1,6 +1,6 @@
 # A Simple Hangman Game
-**IT-** Un semplice esercizio per i primi utilizzi di JavaScript.<br/>
-**EN-** A simple hangman game for my third time with JS.<br/>
+**IT-** Un semplice esercizio (versione desktop) per i primi utilizzi di JavaScript.<br/>
+**EN-** A simple hangman game (desktop version) for my third time with JS.<br/>
 <br/>
 
 ## Anteprima / Screenshot:
