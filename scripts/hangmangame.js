@@ -55,15 +55,15 @@ function playInit() {
     document.getElementById("gallows").innerHTML = "<img src='img/hangman0.png'>";
     createKeyboard();
     var mysteryStart = isMysteryBox();
-    console.log("mystery", mysteryStart);
     createWord(mysteryStart.word);
+    console.log("Mystery Object is:", mysteryStart);
     return mysteryStart;
 }
 
-// IT- Mostro a monitor la tastiera selezionata.
+// IT- Mostro a monitor la tastiera.
 // EN- Keyboard on the monitor.
 function createKeyboard () {
-    let jsonKeyboard = loadKeyboard(kJson);
+    let jsonKeyboard = loadData(kJson, "keyboard");
     /*
     // Per stampare tutta la tastiera su un'unica riga
     document.getElementById("hangmanKeyboard").innerHTML = jsonKeyboard.map(function(item) {
@@ -81,11 +81,6 @@ function createKeyboard () {
         return "<button class='endgame key' id='key-" + item + "' onclick='playGame(\"" + item + "\")'>" + item + "</button>";
     }).join(" ");
 }
-// IT- Carico i dati dal contenuto json.
-// EN- Load the data from the json content.
-function loadKeyboard (langJson) {
-    return JSON.parse(langJson).keyboard;
-}
 
 // IT- Creo il box misterioso con tutti gli elementi per il gioco: parola, suggerimento, lettere indonivate, errori commessi.
 // EN- Create the mystery box with all the elements: word, tip, check letters, mistakes.
@@ -100,14 +95,20 @@ function isMysteryBox() {
 // IT- Dall'intero gruppo di parole+suggerimenti estraggo casualmente quelli da utilizzare nel gioco.
 // EN- From the whole group of words+hints randomly extract the ones to use in the game.
 function isMystery() {
-    let mysteryObj = loadData(dJson);
+    let mysteryObj = loadData(dJson, "dataComputer");
     let luck = Math.floor(Math.random() * mysteryObj.length);
     return mysteryObj[luck];
 }
+
 // IT- Carico i dati dal contenuto json.
 // EN- Load the data from the json content.
-function loadData(contentJson) {
-    return JSON.parse(contentJson).dataComputer;
+function loadData(contentJson, nameJson) {
+    if (nameJson === "keyboard") {
+        return JSON.parse(contentJson).keyboard;
+    };
+    if (nameJson === "dataComputer") {
+        return JSON.parse(contentJson).dataComputer;
+    };
 }
 
 // IT- Mostro a monitor lo spazio con la parola da indovinare.
@@ -138,7 +139,7 @@ function playGame(letterChoice) {
     document.getElementById("key-"+letterChoice).disabled = true;
     var checkResult = checkLetter(letterChoice, mystery.word);
     mystery.letters.push(letterChoice);
-    if (!checkResult.length) {
+    if (!checkResult.length) { // !0 cioè se il vettore con le posizioni di controllo è vuoto. 
         mystery.ko++;
         mystery.errors.push(letterChoice);
         document.getElementById("death_letter").innerHTML = mystery.errors.map(function(item) {
@@ -147,7 +148,6 @@ function playGame(letterChoice) {
         document.getElementById("gallows").innerHTML = "<img src='img/hangman" + mystery.ko + ".png'>";
         switch(mystery.ko) {
             case 5:
-                document.getElementById("gallows").innerHTML = "<img src='img/hangman5.png'>";
                 youLose();
                 break;
             case 3:
@@ -164,7 +164,7 @@ function playGame(letterChoice) {
 // IT- Controllo la presenza della lettera nella parola.
 // EN- Check letter in the word.
 function checkLetter (letter, word) {
-    let wordA = [...word]; // Trasformo stringa in array per utilizzare forEach altrimenti potevo lasciare e usare ciclo for normale
+    let wordA = [...word]; // Trasformo stringa in array per utilizzare forEach altrimenti potevo lasciare e usare ciclo for normale.
     let positions = [];
     wordA.forEach(function(value, index) {
         if (letter.toUpperCase() === value.toUpperCase()) {
@@ -211,14 +211,13 @@ function isEnd(message) {
 // IT- Messaggio di fine gioco.
 // EN- Final message.
 function isOmega() {
-    document.getElementById("main").innerHTML = "";
     document.getElementById("main").innerHTML = "<h1 class='omega-message'>Thanks for playing!</h1>";
 }
 
 // IT- Disattivare tutte le lettere della tastiera.
 // EN- Disable all keyboard.
 function disableKeyboard() {
-    let killKeyboard = document.getElementsByClassName("endgame");
+    let killKeyboard = document.getElementsByClassName("endgame"); // ByClassName restituisce un insieme di elementi di quella classe.
     for (let i=0; i<killKeyboard.length; i++) {
         killKeyboard[i].disabled = true;
     }
