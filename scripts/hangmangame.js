@@ -103,12 +103,7 @@ function isMystery() {
 // IT- Carico i dati dal contenuto json.
 // EN- Load the data from the json content.
 function loadData(contentJson, nameJson) {
-    if (nameJson === "keyboard") {
-        return JSON.parse(contentJson).keyboard;
-    };
-    if (nameJson === "dataComputer") {
-        return JSON.parse(contentJson).dataComputer;
-    };
+    return JSON.parse(contentJson)[nameJson];
 }
 
 // IT- Mostro a monitor lo spazio con la parola da indovinare.
